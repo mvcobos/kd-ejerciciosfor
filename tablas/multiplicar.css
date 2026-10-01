@@ -87,6 +87,39 @@ body {
     border-bottom: 1px solid rgba(162, 171, 115, 0.25);
 }
 
+/* ===== Panel de entrada: etiqueta, caja, botón y ayuda ===== */
+.panel-entrada {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    max-width: 680px;
+}
+
+.etiqueta {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--oliva-oscuro);
+}
+
+.fila-entrada {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.ayuda {
+    font-size: 0.85rem;
+    color: var(--texto-suave);
+    text-align: center;
+}
+
+.ayuda strong {
+    color: var(--frambuesa);
+}
+
 /* ===== Caja de texto ===== */
 .caja-texto {
     width: 220px;
@@ -173,6 +206,67 @@ body {
     box-shadow: 0 25px 60px rgba(59, 47, 42, 0.12),
                 0 0 0 1px rgba(162, 171, 115, 0.15),
                 inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* ===== Instrucciones ===== */
+.instrucciones {
+    margin-bottom: 24px;
+    padding: 20px 24px;
+    border-radius: var(--radio);
+    background: rgba(255, 247, 235, 0.55);
+    border: 1px dashed rgba(162, 171, 115, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.instrucciones-titulo {
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--oliva-oscuro);
+}
+
+.pasos {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pasos li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+}
+
+.paso-num {
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--crema);
+    background: var(--frambuesa);
+}
+
+/* ===== Nota de ayuda bajo la tabla ===== */
+.nota {
+    margin-top: 20px;
+    padding: 14px 18px;
+    border-radius: 14px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--texto-suave);
+    background: rgba(162, 171, 115, 0.12);
+    border-left: 4px solid var(--oliva);
+}
+
+.nota strong {
+    color: var(--oliva-oscuro);
 }
 
 .cabecera {
@@ -303,9 +397,17 @@ body {
 /* ===== Responsive: celulares ===== */
 @media (max-width: 480px) {
     .encabezado {
+        padding: 14px 16px;
+    }
+
+    .fila-entrada {
         flex-direction: column;
         gap: 10px;
-        padding: 14px 16px;
+        width: 100%;
+    }
+
+    .instrucciones {
+        padding: 16px;
     }
 
     .caja-texto {

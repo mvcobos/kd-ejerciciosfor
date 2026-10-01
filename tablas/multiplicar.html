@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabla del 3</title>
+    <title>Tablas de multiplicar</title>
     <link rel="stylesheet" href="multiplicar.css">
     <script src="multiplicar.js"></script>
 </head>
@@ -16,26 +16,41 @@
     </div>
 
     <header class="encabezado">
-        <input type="text" id="txtNumero" class="caja-texto" placeholder="Ingresa un número" aria-label="Número de la tabla">
-        <button type="button" class="boton" onclick="generarTablas()">PROBAR</button>
+        <div class="panel-entrada">
+            <label for="txtNumero" class="etiqueta">¿Qué tabla quieres ver?</label>
+            <div class="fila-entrada">
+                <input type="number" id="txtNumero" class="caja-texto" placeholder="Ej: 7" aria-describedby="ayudaNumero">
+                <button type="button" class="boton" onclick="generarTablas()" title="Muestra la tabla del número que escribiste">GENERAR TABLA</button>
+            </div>
+            <p class="ayuda" id="ayudaNumero">💡 Escribe un número entero, por ejemplo del 1 al 12, y pulsa <strong>Generar tabla</strong>.</p>
+        </div>
     </header>
 
     <main class="contenedor">
+        <section class="instrucciones" aria-labelledby="tituloInstrucciones">
+            <h2 class="instrucciones-titulo" id="tituloInstrucciones">¿Cómo funciona?</h2>
+            <ol class="pasos">
+                <li><span class="paso-num">1</span> Escribe en la caja el número de la tabla que quieres aprender.</li>
+                <li><span class="paso-num">2</span> Pulsa el botón <strong>Generar tabla</strong>.</li>
+                <li><span class="paso-num">3</span> Revisa abajo las multiplicaciones de ese número del 1 al 10.</li>
+            </ol>
+        </section>
+
         <section class="tarjeta">
             <div class="cabecera">
                 <span class="insignia" id="insignia">3</span>
                 <div> 
                     <h1 class="titulo" id="titulo">Tabla del 3</h1>
-                    <p class="subtitulo">Multiplicaciones del 1 al 10</p>
+                    <p class="subtitulo">Multiplicaciones del 1 al 10 · Ejemplo inicial: cámbialo arriba</p>
                 </div>
             </div>
 
             <table class="tabla" id="tabla">
                 <thead>
                     <tr>
-                        <th>Número</th>
-                        <th>Operación</th>
-                        <th>Resultado</th>
+                        <th title="Número por el que se multiplica">Multiplicador</th>
+                        <th title="La multiplicación que se realiza">Operación</th>
+                        <th title="El resultado de la multiplicación">Resultado</th>
                     </tr>
                 </thead>
                 <tbody id="contenido">
@@ -61,6 +76,11 @@
                         <span class="resultado">30</span></td></tr>
                 </tbody>
             </table>
+
+            <p class="nota">
+                ✨ <strong>Consejo:</strong> pasa el cursor sobre una fila para resaltarla.
+                ¿Quieres otra tabla? Cambia el número de arriba y vuelve a pulsar <strong>Generar tabla</strong>.
+            </p>
         </section>
     </main>
 </body>
