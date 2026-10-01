@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabla del 3</title>
     <link rel="stylesheet" href="multiplicar.css">
+    <script src="multiplicar.js"></script>
 </head>
 <body>
     <!-- Manchas de luz decorativas del fondo -->
@@ -15,7 +16,7 @@
     </div>
 
     <header class="encabezado">
-        <button type="button" class="boton">PROBAR</button>
+        <button type="button" class="boton" onclick="generarTablas()">PROBAR</button>
     </header>
 
     <main class="contenedor">
@@ -28,7 +29,7 @@
                 </div>
             </div>
 
-            <table class="tabla">
+            <table class="tabla" id="tabla">
                 <thead>
                     <tr>
                         <th>Número</th>
@@ -36,17 +37,27 @@
                         <th>Resultado</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr><td>1</td><td>3 x 1</td><td><span class="resultado">3</span></td></tr>
-                    <tr><td>2</td><td>3 x 2</td><td><span class="resultado">6</span></td></tr>
-                    <tr><td>3</td><td>3 x 3</td><td><span class="resultado">9</span></td></tr>
-                    <tr><td>4</td><td>3 x 4</td><td><span class="resultado">12</span></td></tr>
-                    <tr><td>5</td><td>3 x 5</td><td><span class="resultado">15</span></td></tr>
-                    <tr><td>6</td><td>3 x 6</td><td><span class="resultado">18</span></td></tr>
-                    <tr><td>7</td><td>3 x 7</td><td><span class="resultado">21</span></td></tr>
-                    <tr><td>8</td><td>3 x 8</td><td><span class="resultado">24</span></td></tr>
-                    <tr><td>9</td><td>3 x 9</td><td><span class="resultado">27</span></td></tr>
-                    <tr><td>10</td><td>3 x 10</td><td><span class="resultado">30</span></td></tr>
+                <tbody id="contenido">
+                    <tr><td>1</td><td>3 x 1</td><td>
+                        <span class="resultado">3</span></td></tr>
+                    <tr><td>2</td><td>3 x 2</td><td>
+                        <span class="resultado">6</span></td></tr>
+                    <tr><td>3</td><td>3 x 3</td><td>
+                        <span class="resultado">9</span></td></tr>
+                    <tr><td>4</td><td>3 x 4</td><td>
+                        <span class="resultado">12</span></td></tr>
+                    <tr><td>5</td><td>3 x 5</td><td>
+                        <span class="resultado">15</span></td></tr>
+                    <tr><td>6</td><td>3 x 6</td><td>
+                        <span class="resultado">18</span></td></tr>
+                    <tr><td>7</td><td>3 x 7</td><td>
+                        <span class="resultado">21</span></td></tr>
+                    <tr><td>8</td><td>3 x 8</td><td>
+                        <span class="resultado">24</span></td></tr>
+                    <tr><td>9</td><td>3 x 9</td><td>
+                        <span class="resultado">27</span></td></tr>
+                    <tr><td>10</td><td>3 x 10</td><td>
+                        <span class="resultado">30</span></td></tr>
                 </tbody>
             </table>
         </section>
