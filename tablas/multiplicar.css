@@ -78,11 +78,47 @@ body {
     z-index: 10;
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 12px;
     padding: 18px 16px;
     background: rgba(255, 247, 235, 0.6);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid rgba(162, 171, 115, 0.25);
+}
+
+/* ===== Caja de texto ===== */
+.caja-texto {
+    width: 220px;
+    padding: 14px 22px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--texto);
+    background: rgba(255, 247, 235, 0.85);
+    border: 1px solid rgba(162, 171, 115, 0.45);
+    border-radius: 999px;
+    box-shadow: var(--sombra-suave),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.caja-texto::placeholder {
+    color: var(--texto-suave);
+    font-weight: 400;
+}
+
+.caja-texto:hover {
+    border-color: var(--oliva);
+}
+
+.caja-texto:focus {
+    outline: none;
+    background: #FFFFFF;
+    border-color: var(--frambuesa);
+    /* Resplandor igual al del botón */
+    box-shadow: 0 0 0 6px rgba(204, 58, 99, 0.15),
+                0 8px 22px rgba(204, 58, 99, 0.18);
 }
 
 .boton {
@@ -267,7 +303,13 @@ body {
 /* ===== Responsive: celulares ===== */
 @media (max-width: 480px) {
     .encabezado {
+        flex-direction: column;
+        gap: 10px;
         padding: 14px 16px;
+    }
+
+    .caja-texto {
+        width: 100%;
     }
 
     .boton {
