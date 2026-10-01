@@ -7,33 +7,49 @@
     <link rel="stylesheet" href="multiplicar.css">
 </head>
 <body>
+    <!-- Manchas de luz decorativas del fondo -->
+    <div class="fondo" aria-hidden="true">
+        <span class="luz luz-1"></span>
+        <span class="luz luz-2"></span>
+        <span class="luz luz-3"></span>
+    </div>
+
     <header class="encabezado">
         <button type="button" class="boton">PROBAR</button>
     </header>
 
     <main class="contenedor">
-        <h1 class="titulo">Tabla del 3</h1>
-        <table class="tabla">
-            <thead>
-                <tr>
-                    <th>Número</th>
-                    <th>Operación</th>
-                    <th>Resultado</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>1</td><td>3 x 1</td><td>3</td></tr>
-                <tr><td>2</td><td>3 x 2</td><td>6</td></tr>
-                <tr><td>3</td><td>3 x 3</td><td>9</td></tr>
-                <tr><td>4</td><td>3 x 4</td><td>12</td></tr>
-                <tr><td>5</td><td>3 x 5</td><td>15</td></tr>
-                <tr><td>6</td><td>3 x 6</td><td>18</td></tr>
-                <tr><td>7</td><td>3 x 7</td><td>21</td></tr>
-                <tr><td>8</td><td>3 x 8</td><td>24</td></tr>
-                <tr><td>9</td><td>3 x 9</td><td>27</td></tr>
-                <tr><td>10</td><td>3 x 10</td><td>30</td></tr>
-            </tbody>
-        </table>
+        <section class="tarjeta">
+            <div class="cabecera">
+                <span class="insignia">3</span>
+                <div>
+                    <h1 class="titulo">Tabla del 3</h1>
+                    <p class="subtitulo">Multiplicaciones del 1 al 10</p>
+                </div>
+            </div>
+
+            <table class="tabla">
+                <thead>
+                    <tr>
+                        <th>Número</th>
+                        <th>Operación</th>
+                        <th>Resultado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>3 x 1</td><td><span class="resultado">3</span></td></tr>
+                    <tr><td>2</td><td>3 x 2</td><td><span class="resultado">6</span></td></tr>
+                    <tr><td>3</td><td>3 x 3</td><td><span class="resultado">9</span></td></tr>
+                    <tr><td>4</td><td>3 x 4</td><td><span class="resultado">12</span></td></tr>
+                    <tr><td>5</td><td>3 x 5</td><td><span class="resultado">15</span></td></tr>
+                    <tr><td>6</td><td>3 x 6</td><td><span class="resultado">18</span></td></tr>
+                    <tr><td>7</td><td>3 x 7</td><td><span class="resultado">21</span></td></tr>
+                    <tr><td>8</td><td>3 x 8</td><td><span class="resultado">24</span></td></tr>
+                    <tr><td>9</td><td>3 x 9</td><td><span class="resultado">27</span></td></tr>
+                    <tr><td>10</td><td>3 x 10</td><td><span class="resultado">30</span></td></tr>
+                </tbody>
+            </table>
+        </section>
     </main>
 </body>
 </html>

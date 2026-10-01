@@ -1,3 +1,21 @@
+/* ===== Paleta ===== */
+:root {
+    --crema: #FFF7EB;
+    --arena: #F9F0E0;
+    --oliva: #A2AB73;
+    --frambuesa: #CC3A63;
+
+    /* Tonos derivados de la paleta para contraste */
+    --oliva-oscuro: #6F7748;
+    --frambuesa-oscuro: #A82A4F;
+    --texto: #3B2F2A;
+    --texto-suave: #7A6A60;
+
+    --radio: 22px;
+    --sombra-suave: 0 10px 30px rgba(204, 58, 99, 0.10),
+                    0 2px 6px rgba(59, 47, 42, 0.06);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,107 +23,311 @@
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f0f4f8;
-    color: #333;
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+    color: var(--texto);
     min-height: 100vh;
+    background: linear-gradient(160deg, var(--crema) 0%, var(--arena) 100%);
+    overflow-x: hidden;
 }
 
-/* Botón en la parte superior */
+/* ===== Fondo con luces difuminadas ===== */
+.fondo {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.luz {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+}
+
+.luz-1 {
+    width: 420px;
+    height: 420px;
+    top: -120px;
+    left: -100px;
+    background: var(--frambuesa);
+    opacity: 0.35;
+}
+
+.luz-2 {
+    width: 480px;
+    height: 480px;
+    bottom: -160px;
+    right: -120px;
+    background: var(--oliva);
+    opacity: 0.55;
+}
+
+.luz-3 {
+    width: 260px;
+    height: 260px;
+    top: 45%;
+    left: 60%;
+    background: #F2B38A;
+    opacity: 0.4;
+}
+
+/* ===== Encabezado y botón ===== */
 .encabezado {
+    position: sticky;
+    top: 0;
+    z-index: 10;
     display: flex;
     justify-content: center;
-    padding: 20px 16px;
-    background-color: #1e3a5f;
+    padding: 18px 16px;
+    background: rgba(255, 247, 235, 0.6);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(162, 171, 115, 0.25);
 }
 
 .boton {
-    padding: 12px 40px;
+    padding: 14px 48px;
     font-size: 1rem;
-    font-weight: bold;
-    letter-spacing: 1px;
-    color: #fff;
-    background-color: #ff8c00;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--crema);
+    background: linear-gradient(135deg, #E0567D 0%, var(--frambuesa) 50%, var(--frambuesa-oscuro) 100%);
     border: none;
-    border-radius: 8px;
+    border-radius: 999px;
     cursor: pointer;
-    transition: background-color 0.2s, transform 0.1s;
+    box-shadow: 0 8px 22px rgba(204, 58, 99, 0.40),
+                inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
 }
 
 .boton:hover {
-    background-color: #e07b00;
+    transform: translateY(-2px);
+    filter: brightness(1.05);
+    /* Resplandor alrededor del botón */
+    box-shadow: 0 12px 30px rgba(204, 58, 99, 0.50),
+                0 0 0 6px rgba(204, 58, 99, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.35);
 }
 
 .boton:active {
-    transform: scale(0.97);
+    transform: translateY(0) scale(0.97);
+    box-shadow: 0 4px 12px rgba(204, 58, 99, 0.35);
 }
 
-/* Contenido */
+.boton:focus-visible {
+    outline: 3px solid var(--oliva);
+    outline-offset: 4px;
+}
+
+/* ===== Contenedor y tarjeta (efecto vidrio) ===== */
 .contenedor {
     width: 100%;
-    max-width: 600px;
-    margin: 30px auto;
+    max-width: 680px;
+    margin: 48px auto;
     padding: 0 16px;
 }
 
-.titulo {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #1e3a5f;
-    font-size: 2rem;
+.tarjeta {
+    padding: 32px;
+    border-radius: var(--radio);
+    background: rgba(255, 247, 235, 0.65);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 25px 60px rgba(59, 47, 42, 0.12),
+                0 0 0 1px rgba(162, 171, 115, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
+.cabecera {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 28px;
+}
+
+.insignia {
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--crema);
+    background: linear-gradient(135deg, var(--oliva) 0%, var(--oliva-oscuro) 100%);
+    box-shadow: 0 10px 24px rgba(111, 119, 72, 0.40),
+                inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.titulo {
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--frambuesa);
+    background: linear-gradient(90deg, var(--frambuesa) 0%, var(--frambuesa-oscuro) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitulo {
+    margin-top: 4px;
+    color: var(--texto-suave);
+    font-size: 0.95rem;
+}
+
+/* ===== Tabla ===== */
 .tabla {
     width: 100%;
-    border-collapse: collapse;
-    background-color: #fff;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.tabla th,
-.tabla td {
-    padding: 12px;
-    text-align: center;
-    border-bottom: 1px solid #e0e0e0;
+    border-collapse: separate;
+    border-spacing: 0 8px;
 }
 
 .tabla th {
-    background-color: #1e3a5f;
-    color: #fff;
+    padding: 10px 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-    font-size: 0.9rem;
+    color: var(--oliva-oscuro);
+    text-align: center;
 }
 
-.tabla tbody tr:nth-child(even) {
-    background-color: #f7f9fc;
+.tabla td {
+    padding: 14px 12px;
+    text-align: center;
+    font-size: 1.05rem;
+    background: var(--crema);
+    transition: background 0.2s ease;
+}
+
+.tabla td:first-child {
+    border-radius: 14px 0 0 14px;
+    font-weight: 700;
+    color: var(--oliva-oscuro);
+}
+
+.tabla td:last-child {
+    border-radius: 0 14px 14px 0;
+}
+
+.tabla tbody tr {
+    box-shadow: var(--sombra-suave);
+    border-radius: 14px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tabla tbody tr:nth-child(even) td {
+    background: var(--arena);
 }
 
 .tabla tbody tr:hover {
-    background-color: #ffe9cc;
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 14px 30px rgba(204, 58, 99, 0.18);
 }
 
-/* Responsive: tablets */
+.tabla tbody tr:hover td {
+    background: #FFFFFF;
+}
+
+.resultado {
+    display: inline-block;
+    min-width: 52px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-weight: 800;
+    color: var(--frambuesa);
+    background: rgba(204, 58, 99, 0.10);
+    transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tabla tbody tr:hover .resultado {
+    color: var(--crema);
+    background: var(--frambuesa);
+    box-shadow: 0 0 18px rgba(204, 58, 99, 0.55);
+}
+
+/* ===== Responsive: tablets ===== */
 @media (max-width: 768px) {
+    .contenedor {
+        margin: 32px auto;
+    }
+
+    .tarjeta {
+        padding: 24px;
+    }
+
+    .titulo {
+        font-size: 1.9rem;
+    }
+}
+
+/* ===== Responsive: celulares ===== */
+@media (max-width: 480px) {
+    .encabezado {
+        padding: 14px 16px;
+    }
+
+    .boton {
+        width: 100%;
+        padding: 14px 0;
+    }
+
+    .contenedor {
+        margin: 20px auto;
+    }
+
+    .tarjeta {
+        padding: 18px 14px;
+        border-radius: 18px;
+    }
+
+    .cabecera {
+        gap: 14px;
+        margin-bottom: 18px;
+    }
+
+    .insignia {
+        width: 52px;
+        height: 52px;
+        font-size: 1.6rem;
+        border-radius: 14px;
+    }
+
     .titulo {
         font-size: 1.6rem;
     }
+
+    .subtitulo {
+        font-size: 0.85rem;
+    }
+
+    .tabla th {
+        padding: 6px 4px;
+        font-size: 0.65rem;
+        letter-spacing: 1px;
+    }
+
+    .tabla td {
+        padding: 10px 6px;
+        font-size: 0.95rem;
+    }
+
+    .resultado {
+        min-width: 42px;
+        padding: 4px 10px;
+    }
+
+    .luz {
+        filter: blur(70px);
+    }
 }
 
-/* Responsive: móviles */
-@media (max-width: 480px) {
-    .boton {
-        width: 100%;
-    }
-
-    .titulo {
-        font-size: 1.4rem;
-    }
-
-    .tabla th,
-    .tabla td {
-        padding: 8px 4px;
-        font-size: 0.85rem;
+/* Menos animación para quien lo prefiera */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
     }
 }
