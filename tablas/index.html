@@ -17,12 +17,13 @@
 
     <header class="encabezado">
         <div class="panel-entrada">
-            <label for="txtNumero" class="etiqueta">¿Qué tabla quieres ver?</label>
+            <label for="txtNumerito" class="etiqueta">¿Qué tabla quieres ver?</label>
             <div class="fila-entrada">
-                <input type="number" id="txtNumero" class="caja-texto" placeholder="Ej: 7" aria-describedby="ayudaNumero">
+                <input type="number" id="txtNumerito" class="caja-texto" placeholder="Ej: 7" aria-describedby="ayudaNumero">
                 <button type="button" class="boton" onclick="generarTablas()" title="Muestra la tabla del número que escribiste">GENERAR TABLA</button>
             </div>
             <p class="ayuda" id="ayudaNumero">💡 Escribe un número entero, por ejemplo del 1 al 12, y pulsa <strong>Generar tabla</strong>.</p>
+            <p class="error" id="mensajeError" role="alert"></p>
         </div>
     </header>
 

@@ -120,6 +120,17 @@ body {
     color: var(--frambuesa);
 }
 
+.error {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--frambuesa-oscuro);
+    text-align: center;
+}
+
+.error:empty {
+    display: none;
+}
+
 /* ===== Caja de texto ===== */
 .caja-texto {
     width: 220px;
